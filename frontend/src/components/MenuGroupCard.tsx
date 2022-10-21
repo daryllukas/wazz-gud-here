@@ -31,7 +31,7 @@ export const MenuGroupCard: React.FC<MenuGroupCardProps> = ({
             backgroundImage: `linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(${backgroundImg})`,
           }}
         >
-          <div className="text-3xl font-extrabold uppercase text-white md:text-2xl lg:text-3xl">
+          <div className="text-3xl text-center font-extrabold uppercase text-white md:text-2xl lg:text-3xl">
             {title}
           </div>
         </div>

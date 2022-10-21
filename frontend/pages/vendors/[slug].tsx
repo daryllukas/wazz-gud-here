@@ -5,6 +5,7 @@ import { MenuGroupCard } from '../../src/components/MenuGroupCard';
 import { getVendor } from '../../src/graphql/queries';
 import client from '../../src/lib/apollo-client';
 import { SpecialsCard } from '../../src/components/SpecialsCard';
+import Head from 'next/head';
 
 interface VendorProps extends AppProps {
   vendor: Vendor;
@@ -31,6 +32,15 @@ const VendorPage: NextPage<VendorProps> = (props) => {
 
   return (
     <div className="container space-y-10 p-5">
+      <Head>
+        <title>Wazz Gud @ {vendor.name}</title>
+        <meta
+          name="description"
+          content="Check out the food and menu from your favorite local pubs and restaurants"
+        />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+
       <header className="flex flex-wrap items-center justify-center gap-4 px-2 sm:px-0 md:flex-nowrap md:justify-between">
         <div
           className="flex-none bg-cover bg-center rounded-full w-20 h-20 md:w-32 md:h-32"

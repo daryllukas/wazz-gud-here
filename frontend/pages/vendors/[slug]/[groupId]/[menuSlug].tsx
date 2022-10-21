@@ -1,10 +1,9 @@
 import { GetServerSideProps, NextPage } from 'next';
 import client from '../../../../src/lib/apollo-client';
-import {
-  getMenuItemsByGroup,
-} from '../../../../src/graphql/queries';
+import { getMenuItemsByGroup } from '../../../../src/graphql/queries';
 import { AppProps } from 'next/app';
 import { MenuListItem } from '../../../../src/components/MenuListItem';
+import Head from 'next/head';
 
 interface MenuGroup {
   name: string;
@@ -22,6 +21,15 @@ const MenuPage: NextPage<MenuProps> = (props) => {
 
   return (
     <div className="container mx-auto overflow-hidden rounded-xl bg-white">
+      <Head>
+        <title>Wazz Gud @ {menu.vendor} | {menu.name}</title>
+        <meta
+          name="description"
+          content="Check out the food and menu from your favorite local pubs and restaurants"
+        />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+
       <div
         className="flex flex-col h-48 items-start justify-center bg-cover bg-center bg-no-repeat pl-6"
         style={{
@@ -79,8 +87,9 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   let menu: MenuGroup = {
     name: groupData.attributes?.name || '',
     vendor: groupData.attributes?.vendor.data?.attributes?.name || '',
-    featuredImage: groupData.attributes?.featuredImage.data?.attributes.url
-      || '/no-image.png',
+    featuredImage:
+      groupData.attributes?.featuredImage.data?.attributes.url ||
+      '/no-image.png',
     items: menuItems || [],
   };
 
