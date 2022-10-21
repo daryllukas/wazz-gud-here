@@ -111,7 +111,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     address =
       vendorData.attributes.information.contact.address +
       ', ' +
-      vendorData.attributes.city.data.attributes.name;
+      vendorData.attributes.city.data?.attributes.name;
   }
   let specials: any = null;
   if (vendorData.attributes?.specials_menu.data) {
@@ -135,7 +135,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     address,
     phone: (vendorData.attributes?.information.contact.phone as string) || '',
     slug: (vendorData.attributes?.slug as string) || '',
-    avatar: (vendorData.attributes?.avatar.data.attributes.url as string) || '',
+    avatar: (vendorData.attributes?.avatar.data?.attributes.url as string) || '',
     menuGroups: [],
     specials,
   };

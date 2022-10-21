@@ -3,7 +3,7 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   images: {
-    domains: ['localhost', 'strapiapp.com'],
+    domains: ['localhost', 'strapiapp.com', 'cloudinary.com'],
   },
   rewrites: async () => {
     return [
