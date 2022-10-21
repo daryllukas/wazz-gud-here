@@ -25,7 +25,7 @@ Be sure to have the correct env variables for each part:
 
 - Next.js (example in `./frontend/.env.local`):
   - `NEXT_PUBLIC_STRAPI_API_BASE=<url-of-strapi>`
-  - `NEXT_PUBLIC_STRAPI_API_TOKEN=<random-token>`
+  - `STRAPI_API_TOKEN=<random-token>`
 
 
 ## 3. Start Strapi
