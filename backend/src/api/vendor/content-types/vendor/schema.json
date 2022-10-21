@@ -1,0 +1,57 @@
+{
+  "kind": "collectionType",
+  "collectionName": "vendors",
+  "info": {
+    "singularName": "vendor",
+    "pluralName": "vendors",
+    "displayName": "Vendor",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "avatar": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "information": {
+      "displayName": "Information",
+      "type": "component",
+      "repeatable": false,
+      "component": "vendor.information"
+    },
+    "menu_groups": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::menu-group.menu-group",
+      "mappedBy": "vendor"
+    },
+    "slug": {
+      "type": "uid"
+    },
+    "city": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::city.city",
+      "inversedBy": "vendors"
+    },
+    "specials_menu": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::specials-menu.specials-menu",
+      "mappedBy": "vendor"
+    }
+  }
+}

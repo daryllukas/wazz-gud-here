@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_vendor_opening_hours",
+  "info": {
+    "displayName": "Opening Hours",
+    "icon": "business-time"
+  },
+  "options": {},
+  "attributes": {
+    "day": {
+      "type": "integer"
+    },
+    "open": {
+      "type": "time"
+    },
+    "close": {
+      "type": "time"
+    }
+  }
+}

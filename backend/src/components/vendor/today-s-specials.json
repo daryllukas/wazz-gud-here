@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_vendor_today_s_specials",
+  "info": {
+    "displayName": "Today's Specials",
+    "icon": "star-of-life"
+  },
+  "options": {},
+  "attributes": {
+    "menu_items": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::menu-item.menu-item"
+    }
+  }
+}

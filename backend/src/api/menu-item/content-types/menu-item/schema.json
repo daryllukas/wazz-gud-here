@@ -1,0 +1,54 @@
+{
+  "kind": "collectionType",
+  "collectionName": "menu_items",
+  "info": {
+    "singularName": "menu-item",
+    "pluralName": "menu-items",
+    "displayName": "Menu Item",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "featuredImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "price": {
+      "type": "decimal"
+    },
+    "menu_category": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::menu-category.menu-category",
+      "inversedBy": "menu_items"
+    },
+    "menu_group": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::menu-group.menu-group",
+      "inversedBy": "menu_items"
+    },
+    "specials_menu": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::specials-menu.specials-menu",
+      "inversedBy": "menu_items"
+    },
+    "description": {
+      "type": "text"
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "specials_menus",
+  "info": {
+    "singularName": "specials-menu",
+    "pluralName": "specials-menus",
+    "displayName": "Specials Menu",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "menu_items": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::menu-item.menu-item",
+      "mappedBy": "specials_menu"
+    },
+    "vendor": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::vendor.vendor",
+      "inversedBy": "specials_menu"
+    },
+    "name": {
+      "type": "string"
+    }
+  }
+}
