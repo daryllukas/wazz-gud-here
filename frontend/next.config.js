@@ -3,16 +3,19 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   images: {
-    domains: ['localhost'],
+    domains: ['localhost', 'strapiapp.com'],
   },
   rewrites: async () => {
     return [
       {
         source: '/uploads/:path*',
-        destination: 'http://localhost:1337/uploads/:path*',
+        destination:
+          process.env.NODE_ENV === 'production'
+            ? 'https://snobbish-soft-board.strapiapp.com/uploads/:path*'
+            : 'http://localhost:1337/uploads/:path*',
       },
-    ]
+    ];
   },
-}
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;

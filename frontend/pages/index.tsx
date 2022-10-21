@@ -63,7 +63,7 @@ const Home: NextPage<HomeProps> = (props) => {
                 description={vendor.description}
                 city={vendor.city}
                 slug={vendor.slug}
-                featuredImage={vendor.featuredImage}
+                featuredImage={vendor.featuredImage || undefined}
               />
             ))}
           </div>

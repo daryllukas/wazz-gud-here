@@ -16,7 +16,7 @@ export const VendorCard: React.FC<VendorProps> = ({id, name, slug, city, descrip
       <div className="overflow-hidden shadow-lg rounded-lg h-90 w-full cursor-pointer">
         <picture>
           <img
-            alt={'delve(images, "data.0.attributes.alternativeText")'}
+            alt={name}
             src={featuredImage}
             className="max-h-48 w-full object-cover"
           />
