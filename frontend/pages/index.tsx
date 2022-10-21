@@ -94,8 +94,8 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     name: data.attributes?.name,
     description: data.attributes?.information.description,
     slug: data.attributes?.slug,
-    city: data.attributes?.city.data.attributes?.name,
-    featuredImage: data.attributes?.avatar.data.attributes?.url,
+    city: data.attributes?.city.data?.attributes.name,
+    featuredImage: data.attributes?.avatar.data?.attributes.url,
   }));
 
   return {
