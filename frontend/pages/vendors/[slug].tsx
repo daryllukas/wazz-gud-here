@@ -45,20 +45,24 @@ const VendorPage: NextPage<VendorProps> = (props) => {
         </div>
       </header>
       <div className="rounded-lg bg-white p-4 md:p-8 space-y-10">
-        <div className="">
-          <p className=" text-xl font-semibold mb-4">{vendor.specials.name}</p>
-          <div className="flex overflow-x-scroll lg:overflow-auto">
-            {vendor.specials.items?.map((item: any) => (
-              <SpecialsCard
-                key={item.id}
-                id={item.id}
-                name={item.name}
-                price={item.price}
-                featuredImage={item.image || undefined}
-              />
-            ))}
+        {vendor.specials && (
+          <div className="">
+            <p className=" text-xl font-semibold mb-4">
+              {vendor.specials.name}
+            </p>
+            <div className="flex overflow-x-scroll lg:overflow-auto">
+              {vendor.specials.items?.map((item: any) => (
+                <SpecialsCard
+                  key={item.id}
+                  id={item.id}
+                  name={item.name}
+                  price={item.price}
+                  featuredImage={item.image || undefined}
+                />
+              ))}
+            </div>
           </div>
-        </div>
+        )}
         <div className="w-full">
           <p className=" text-xl font-semibold mb-4">Browse Menu</p>
           <div className="flex flex-wrap">
@@ -99,18 +103,20 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
       ', ' +
       vendorData.attributes.city.data.attributes.name;
   }
-  let specials: any = {};
-  if (vendorData.attributes?.specials_menu) {
-    specials['name'] = vendorData.attributes.specials_menu.data.attributes.name;
+  let specials: any = null;
+  if (vendorData.attributes?.specials_menu.data) {
+    specials = {};
+    specials['name'] =
+      vendorData.attributes?.specials_menu.data?.attributes.name || '';
     specials['items'] =
-      vendorData.attributes.specials_menu.data.attributes.menu_items.data.map(
+      vendorData.attributes?.specials_menu.data?.attributes.menu_items.data.map(
         (i: any) => ({
           id: i.id,
           name: i.attributes.name,
           price: i.attributes.price,
           image: i.attributes.featuredImage.data?.attributes.url || null,
         })
-      );
+      ) || [];
   }
 
   let vendor: Vendor = {
