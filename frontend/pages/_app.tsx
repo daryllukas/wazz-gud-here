@@ -1,6 +1,7 @@
 import type { AppProps } from 'next/app';
 import { Layout } from '../src/components/Layout';
 import { ModalContextProvider } from '../src/context/Modal';
+import { Analytics } from '@vercel/analytics/react';
 
 import '../src/styles/globals.css';
 
@@ -11,6 +12,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     <ModalContextProvider>
       <Layout>
         <Component {...pageProps} />
+        <Analytics />
       </Layout>
     </ModalContextProvider>
   );
