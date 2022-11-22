@@ -5,9 +5,8 @@ This repository contains the following:
 - Strapi project with existing Content-types and data (`/backend`)
 - Next.js client ready to fetch the content of the Strapi application (`/frontend`)
 
-## Live Demo
+## Preview
 ![Preview](./screenshot.png)
-[Wazz Gud Here - Frontend App](https://wazz-gud-here.vercel.app/)
 
 ## Local Development
 ### 1. Clone Repo
